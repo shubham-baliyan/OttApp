@@ -1,10 +1,9 @@
-let mode = "remoteserver"
-let domain =mode==='local'?"":"";
+let mode = "remoteserver";
+let domain =
+  mode === "local" ? "http://localhost:1337:" : "http://localhost:1337";
 
-let appConfig={
-
-
-
-}
+let appConfig = {
+  domain,
+};
 
 export default appConfig;
