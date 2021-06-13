@@ -1,9 +1,9 @@
 let mode = "remoteserver";
 let domain =
-  mode === "local" ? "http://localhost:1337:" : "http://localhost:1337";
+  mode === "local" ? "http://localhost:1337/" : "http://localhost:1337/";
 
 let appConfig = {
-  domain,
+  graphDomain: domain + "graphql",
 };
 
 export default appConfig;

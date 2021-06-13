@@ -1,25 +1,39 @@
 import React from "react";
 import MasterFooter from "../components/footer/Masterfooter";
 import Banner from "../components/banner/banner";
-import Cards from "../components/Cards/card";
 import CardSlider from "../components/Cards/CardSlider";
 import CardSlider2 from "../components/Cards/CardSlider2";
 import Header from "../components/header/Header";
+import { gql, useQuery } from "@apollo/client";
+import loader from "../assets/images/loader.gif";
 
-
+const ACTION_MOVIES = gql`
+  query {
+    movies(limit: 10) {
+      title
+      tagline
+      poster
+      runtime
+      genres {
+        name
+      }
+    }
+  }
+`;
 
 const Home = () => {
+  const { loading, error, data } = useQuery(ACTION_MOVIES);
+  console.log(data);
+  if (loading) return <img src={loader} alt="loader" />;
+  if (error) return <p>Error :(</p>;
+
   return (
-    <div>
+    <div style={{ backgroundColor: "#000" }}>
       <Header topClass="top-header" />
-
-      {/* <h1 className="text-center"></h1> */}
       <Banner />
-      {/* <Cards title="Action" /> */}
-      <CardSlider title="Action" />
-      <CardSlider2 title="drama" />
+      <CardSlider title="Action" data={data.movies} />
+      {/* <CardSlider2 title="drama" data={data.movies} /> */}
       <MasterFooter />
-
     </div>
   );
 };

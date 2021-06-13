@@ -8,20 +8,9 @@ const CardSlider2 = (props) => {
     <div className="my-5 mx-2">
       <h1 className="card__categoryHeading"> {props.title}</h1>
       <Slider {...settings} className="card__slider">
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
-        <CardSingle2 />
+        {props.data.length
+          ? props.data.map((item) => <CardSingle2 item={item} />)
+          : null}
       </Slider>
     </div>
   );

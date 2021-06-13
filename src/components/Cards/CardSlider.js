@@ -8,20 +8,10 @@ const CardSlider = (props) => {
     <div className="my-5 mx-2">
       <h1 className="card__categoryHeading"> {props.title}</h1>
       <Slider {...settings} className="card__slider">
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
-        <CardSingle />
+        {props.data.length?props.data.map(item=>(
+          <CardSingle item={item}/>
+        )):null}
+       
       </Slider>
     </div>
   );

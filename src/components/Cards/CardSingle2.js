@@ -1,15 +1,21 @@
 import React from "react";
 import pic from "../../assets/images/ave.webp";
 
-const CardSingle2 = () => {
+const CardSingle2 = ({ item }) => {
   return (
     <div>
       <div className="card__container1">
         <div>
-          <img className="card__img1" src={pic} alt="big bull" />
+          <img
+            className="card__img1"
+            height="163"
+            width="288"
+            src={item.poster}
+            alt="big bull"
+          />
         </div>
         <div className="card__details card__details1">
-          <h1 className="card__h1">Avengers EndGame</h1>
+          <h1 className="card__h1">{item.title}</h1>
           {/* <h2 className="card__h2">
             1 hr 41 min,Romance Drama, <br />
             Hindi 2019
