@@ -8,7 +8,7 @@ const Data = [
   {
     img: "home6",
     title: "Harry Potter",
-    desc: "",
+    desc: "Harry Potter",
     // link: "/left-sidebar/collection ",
   },
   {

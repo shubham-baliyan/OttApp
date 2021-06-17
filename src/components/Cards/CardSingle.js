@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import pic from "../../assets/images/pic.webp";
 
 const CardSingle = ({ item }) => {
@@ -22,10 +23,10 @@ const CardSingle = ({ item }) => {
         </button>
         <button className="card__button">
           <i className="fa fa-plus"></i>
-          <a className="card__button--link" href="#">
+          <Link className="card__button--link" to={`/single/${item.id}`}>
             {" "}
             Add to WatchList{" "}
-          </a>
+          </Link>
         </button>
       </div>
     </div>
