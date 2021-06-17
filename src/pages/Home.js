@@ -30,12 +30,11 @@ const Home = () => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <div style={{ backgroundColor: "#000" }}>
+    <div >
       <Banner />
       <CardSlider title="Action" data={data.movies} />
-      {/* <CardSlider2 title="drama" data={data.movies} /> */}
       <TopRated/>
-      <MasterFooter />
+
     </div>
   );
 };

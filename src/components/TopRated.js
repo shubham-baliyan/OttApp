@@ -28,11 +28,11 @@ const CardSlider = (props) => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <div className="my-5 mx-2">
+    <div className="my-3 mx-2">
       <h1 className="card__categoryHeading"> {props.title}</h1>
       <Slider {...settings} className="card__slider">
         {data.movies.length
-          ? data.movies.map((item) => <CardSingle item={item} />)
+          ? data.movies.map((item) => <CardSingle key={item.id} item={item} />)
           : null}
       </Slider>
     </div>

@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import pic from "../../assets/images/pic.webp";
 
 const CardSingle = ({ item }) => {
+
+  const addToLocal=()=>{
+    let items=JSON.parse(localStorage.getItem("watchList"));
+    items.push(item);
+    localStorage.setItem('watchList',JSON.stringify(items))
+  }
   return (
+    <Link to={`/single/${item.id}`}>
+
     <div className="card__container">
       <div>
         <img className="card__img" src={item.poster} alt="big bull" />
@@ -14,22 +22,22 @@ const CardSingle = ({ item }) => {
           {item.runtime}, <br />
         </h2>
         <p className="card__p">{item.tagline}</p>
-        <button className="card__button">
-          <i className="fa fa-play"></i>
-          <a className="card__button--link" href="#">
-            {" "}
-            Watch now{" "}
-          </a>
-        </button>
-        <button className="card__button">
-          <i className="fa fa-plus"></i>
-          <Link className="card__button--link" to={`/single/${item.id}`}>
-            {" "}
-            Add to WatchList{" "}
+          <Link className="card__button text-white" to={`/single/${item.id}`}>
+           
+              <i className="fa fa-play mr-2"></i>
+                Watch now
+            
           </Link>
+        <button className="card__button" onClick={addToLocal}>
+          <i className="fa fa-plus mr-2"></i>
+          {/* <Link className="card__button--link" to={`/single/${item.id}`}> */}
+            Add to WatchList
+          {/* </Link> */}
         </button>
       </div>
     </div>
+
+    </Link>
   );
 };
 export default CardSingle;

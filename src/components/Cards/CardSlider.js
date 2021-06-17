@@ -9,7 +9,7 @@ const CardSlider = (props) => {
       <h1 className="card__categoryHeading"> {props.title}</h1>
       <Slider {...settings} className="card__slider">
         {props.data.length?props.data.map(item=>(
-          <CardSingle item={item}/>
+          <CardSingle key={item.id} item={item}/>
         )):null}
        
       </Slider>
