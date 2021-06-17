@@ -239,7 +239,7 @@ header{
         > a{
           display: block;
           padding-right: 45px;
-          color: #222222;
+          color:$color-primary;
           font-size: 16px;
           font-weight: 400;
           line-height: 23px;
@@ -403,7 +403,7 @@ header{
         }
         &:hover{
           > a{
-            color:var(--theme-deafult);
+            color:$white;
           }
         }
         &.mega-menu{
