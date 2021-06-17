@@ -1,7 +1,10 @@
 import React from "react";
 import Header from "../components/header/Header";
+import Loader from '../components/Loader'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MasterFooter from "../components/footer/Masterfooter";
 const Home = React.lazy(() => import("../pages/Home"));
+const VideoPage = React.lazy(() => import("../pages/VideoPage"));
 const single = React.lazy(() => import("../pages/single"));
 const Blog = React.lazy(() => import("../pages/Blog"));
 const blogLeftSidebar = React.lazy(() =>
@@ -14,7 +17,7 @@ const BlogDetail = React.lazy(() => import("../pages/blogs/no_sidebar"));
 
 const Routes = () => (
   <Router>
-    <React.Suspense fallback={() => <h1>loading</h1>}>
+    <React.Suspense fallback={<Loader/>}>
       <Header topClass="top-header" />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -23,7 +26,9 @@ const Routes = () => (
         <Route exact path="/blogLeftSidebar" component={blogLeftSidebar} />
         <Route exact path="/blogRightSidebar" component={blogRightSidebar} />
         <Route exact path="/BlogDetail" component={BlogDetail} />
+        <Route exact path="/watch/:id" component={VideoPage}/>
       </Switch>
+      <MasterFooter />
     </React.Suspense>
   </Router>
 );

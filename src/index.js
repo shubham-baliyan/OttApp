@@ -4,7 +4,9 @@ import "./index.css";
 import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import appConfig from "./config";
-
+if(!localStorage.getItem('watchList')){
+localStorage.setItem('watchList',JSON.stringify([]))
+};
 //intialise the Apollo Client
 
 const client = new ApolloClient({

@@ -349,8 +349,9 @@ export const Slider7 = {
   arrows: true,
   infinite: true,
   speed: 300,
-  slidesToShow: 8,
+  // slidesToShow: 8,
   slidesToScroll: 1,
+  variableWidth:true,
   responsive: [
     {
       breakpoint: 1367,
@@ -362,23 +363,30 @@ export const Slider7 = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 5,
-        slidesToScroll: 5,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         infinite: true,
       },
     },
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 380,
+      settings: {
+        // slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
   ],
