@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
+import Error from "../components/Error";
 import Loader from "../components/Loader";
 import TopRated from '../components/TopRated'
 
@@ -33,6 +34,7 @@ function Single(props) {
     localStorage.setItem('watchList',JSON.stringify(items))
   }
   if(loading) return <Loader/>
+  if(error) return <Error/>
   function timeConvert(n) {
     var num = n;
     var hours = (num / 60);

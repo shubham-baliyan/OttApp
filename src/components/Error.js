@@ -1,7 +1,7 @@
 import React from "react";
-import loader from "../assets/images/loader.gif";
+import error from "../assets/images/error.webp";
 
-const Loader = () => {
+const Error = () => {
   return (
     <div
       style={{
@@ -13,9 +13,9 @@ const Loader = () => {
         justifyContent: "center",
       }}
     >
-      <img src={loader} alt="loading Icon" />
+      <img height="600" width="900" src={error} alt="loading Icon" />
     </div>
   );
 };
 
-export default Loader;
+export default Error;

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import CardSingle from "./Cards/CardSingle";
 import { Slider7 as settings } from "../service/script";
 import { gql, useQuery } from "@apollo/client";
+import Loading from "./Loading";
 
 const GET_TOP_RATED = gql`
   query {
@@ -24,7 +25,7 @@ const CardSlider = (props) => {
   });
   console.log(data);
 
-  if (loading) return <p>Loading... :(</p>;
+  if (loading) return <Loading/>;
   if (error) return <p>Error :(</p>;
 
   return (
