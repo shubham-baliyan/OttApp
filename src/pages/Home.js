@@ -5,7 +5,8 @@ import CardSlider from "../components/Cards/CardSlider";
 
 import { gql, useQuery } from "@apollo/client";
 import Loader from "../components/Loader";
-import TopRated from '../components/TopRated'
+import TopRated from "../components/TopRated";
+import Error from "../components/Error";
 
 const ACTION_MOVIES = gql`
   query {
@@ -27,14 +28,13 @@ const Home = () => {
   console.log(data);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
+  if (error) return <Error />;
 
   return (
-    <div >
+    <div>
       <Banner />
       <CardSlider title="Action" data={data.movies} />
-      <TopRated/>
-
+      <TopRated />
     </div>
   );
 };

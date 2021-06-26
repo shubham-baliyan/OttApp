@@ -1,8 +1,9 @@
 import React from "react";
 import "./video.css";
 import John from "../assets/video/john.mp4";
-const Video = () => {
+const Video = (props) => {
   React.useEffect(() => {
+    // Select elements here
     const video = document.getElementById("video");
     const videoControls = document.getElementById("video-controls");
     const playButton = document.getElementById("play");
@@ -10,6 +11,7 @@ const Video = () => {
     const timeElapsed = document.getElementById("time-elapsed");
     const duration = document.getElementById("duration");
     const progressBar = document.getElementById("progress-bar");
+    const progressLoaded = document.getElementById("progress-loaded");
     const seek = document.getElementById("seek");
     const seekTooltip = document.getElementById("seek-tooltip");
     const volumeButton = document.getElementById("volume-button");
@@ -72,6 +74,7 @@ const Video = () => {
       const videoDuration = Math.round(video.duration);
       seek.setAttribute("max", videoDuration);
       progressBar.setAttribute("max", videoDuration);
+
       const time = formatTime(videoDuration);
       duration.innerText = `${time.minutes}:${time.seconds}`;
       duration.setAttribute("datetime", `${time.minutes}m ${time.seconds}s`);
@@ -268,7 +271,28 @@ const Video = () => {
           break;
       }
     }
+    function lol(e) {
+      if (video.duration) {
+        var range = 0;
+        var bf = video.buffered;
+        var time = video.currentTime;
+        console.log(bf.end(range));
 
+        while (!(bf.start(range) <= time && time <= bf.end(range))) {
+          range += 1;
+        }
+        var loadStartPercentage = bf.start(range) / video.duration;
+        var loadEndPercentage = bf.end(range) / video.duration;
+        var loadPercentage = (loadEndPercentage - loadStartPercentage) * 100;
+        // progressLoaded.setAttribute('min',Math.round(loadStartPercentage*100))
+        progressLoaded.value = Math.floor(loadEndPercentage * 100);
+        console.log(
+          Math.floor(loadStartPercentage * 100),
+          Math.floor(loadEndPercentage * 100),
+          Math.floor(loadPercentage)
+        );
+      }
+    }
     // Add eventlisteners here
     playButton.addEventListener("click", togglePlay);
     video.addEventListener("play", updatePlayButton);
@@ -290,13 +314,22 @@ const Video = () => {
     fullscreenButton.addEventListener("click", toggleFullScreen);
     videoContainer.addEventListener("fullscreenchange", updateFullscreenButton);
     pipButton.addEventListener("click", togglePip);
-
+    video.addEventListener("progress", lol, false);
     document.addEventListener("DOMContentLoaded", () => {
       if (!("pictureInPictureEnabled" in document)) {
         pipButton.classList.add("hidden");
       }
     });
     document.addEventListener("keyup", keyboardShortcuts);
+    document.getElementById("volume").oninput = function () {
+      var value = ((this.value - this.min) / (this.max - this.min)) * 100;
+      this.style.background =
+        "linear-gradient(to right, #fff 0%, #fff " +
+        value +
+        "%, #383233 " +
+        value +
+        "%, #383233 100%)";
+    };
   }, []);
 
   return (
@@ -315,18 +348,29 @@ const Video = () => {
             className="video"
             id="video"
             preload="metadata"
-            poster="poster.jpg"
+            poster={props.poster}
           >
             <source src={John} type="video/mp4"></source>
           </video>
 
           <div className="video-controls hidden" id="video-controls">
             <div className="video-progress">
-              <progress id="progress-bar" value="0" min="0"></progress>
+              <progress
+                id="progress-loaded"
+                value="0"
+                min="0"
+                max="100"
+              ></progress>
+              <progress
+                id="progress-bar"
+                className="progress"
+                value="0"
+                min="0"
+              ></progress>
               <input
                 className="seek"
                 id="seek"
-                defautlvalue="0"
+                defaultValue="0"
                 min="0"
                 type="range"
                 step="1"
