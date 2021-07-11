@@ -7,6 +7,7 @@ const Home = React.lazy(() => import("../pages/Home"));
 const VideoPage = React.lazy(() => import("../pages/VideoPage"));
 const single = React.lazy(() => import("../pages/single"));
 const CategoryPage = React.lazy(() => import("../pages/CategoryPage"));
+const WatchList = React.lazy(() => import("../pages/WatchList"));
 const Blog = React.lazy(() => import("../pages/Blog"));
 const blogLeftSidebar = React.lazy(() =>
   import("../pages/blogs/blog_left_sidebar")
@@ -29,6 +30,7 @@ const Routes = () => (
         <Route exact path="/BlogDetail" component={BlogDetail} />
         <Route exact path="/watch/:id" component={VideoPage} />
         <Route exact path="/category/:id" component={CategoryPage} />
+        <Route exact path="/watchlist" component={WatchList} />
       </Switch>
       <MasterFooter />
     </React.Suspense>

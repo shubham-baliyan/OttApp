@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 const CardSingle = ({ item }) => {
   const addToLocal = () => {
     let items = JSON.parse(localStorage.getItem("watchList"));
-    items.push(item);
+    let obj = items.find((i) => i.id === item.id);
+    if (!obj) items.push(item);
     localStorage.setItem("watchList", JSON.stringify(items));
   };
   return (
