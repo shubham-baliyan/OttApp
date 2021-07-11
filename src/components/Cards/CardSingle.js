@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import pic from "../../assets/images/pic.webp";
 
 const CardSingle = ({ item }) => {
   const addToLocal = () => {
