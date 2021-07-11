@@ -7,6 +7,7 @@ import { gql, useQuery } from "@apollo/client";
 import Loader from "../components/Loader";
 import TopRated from "../components/TopRated";
 import Error from "../components/Error";
+import CategoryWise from "../components/CategoryWise";
 
 const ACTION_MOVIES = gql`
   query {
@@ -33,8 +34,11 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <TopRated title="Top Rated" />
       <CardSlider title="Action" data={data.movies} />
-      <TopRated />
+      <CategoryWise id="60c052d1c863d03bd0afae9a" title="Drama" />
+      <CategoryWise id="60c052aec863d03bd0afae98" title="Science Fiction " />
+      <CategoryWise id="60c052fcc863d03bd0afae9e" title="Comedy" />
     </div>
   );
 };
