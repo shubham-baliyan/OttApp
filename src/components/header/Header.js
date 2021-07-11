@@ -6,7 +6,7 @@ import { Media, Container, Row, Col } from "reactstrap";
 import search from "../../assets/images/icon/search.png";
 import settings from "../../assets/images/icon/setting.png";
 import cart from "../../assets/images/icon/cart.png";
-import logo from '../../assets/images/logos/logo.png'
+import logo from "../../assets/images/logos/logo.png";
 
 const Header = ({ logoName, headerClass, topClass, direction }) => {
   /*=====================
@@ -76,7 +76,7 @@ const Header = ({ logoName, headerClass, topClass, direction }) => {
                   </div>
                   <div className="brand-logo">
                     {/* <LogoImage logo={logoName} /> */}
-                    <img src={logo} width="50px" height="50px" />
+                    <img src={logo} width="50px" height="50px" alt="logo" />
                   </div>
                 </div>
                 <div className="menu-right pull-right">

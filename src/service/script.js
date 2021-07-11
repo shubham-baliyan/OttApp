@@ -351,7 +351,7 @@ export const Slider7 = {
   speed: 300,
   // slidesToShow: 8,
   slidesToScroll: 1,
-  variableWidth:true,
+  variableWidth: true,
   responsive: [
     {
       breakpoint: 1367,
