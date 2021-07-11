@@ -16,7 +16,8 @@ const CardSingle = ({ item }) => {
             className="card__img loaderGif"
             width="180px"
             height="288px"
-            src={item.poster}
+            loading="lazy"
+            src={item.poster.replace("original", "w185")}
             alt={item.title}
           />
         </div>

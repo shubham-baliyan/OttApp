@@ -1,18 +1,17 @@
 import React, { Fragment } from "react";
 import Slider from "react-slick";
-// import Link from "next/link";
-import { Container, Row, Col } from "reactstrap";
+
 import MasterBanner from "./Masterbanner";
 
 const Data = [
   {
-    img: "home6",
+    img: "home3",
     title: "Harry Potter",
     desc: "Harry Potter",
     // link: "/left-sidebar/collection ",
   },
   {
-    img: "home5",
+    img: "home2",
     title: "Avengers Endgame",
     desc: "",
     // link: "/left-sidebar/collection ",

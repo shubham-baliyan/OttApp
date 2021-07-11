@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "reactstrap";
 
-const MasterBanner = ({ img, title, desc,  classes, btn, btnClass }) => {
+const MasterBanner = ({ img, title, desc, classes, btn, btnClass }) => {
   return (
     <div>
       <div className={`home ${img} ${classes ? classes : "text-center"}`}>
